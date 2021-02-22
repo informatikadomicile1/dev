@@ -1,0 +1,10 @@
+name: Web Service Data
+type: module
+description: Web service data sources as configuration.
+core_version_requirement: ^8 || ^9
+package: WSData
+
+# Information added by Drupal.org packaging script on 2020-10-15
+version: '2.0.0'
+project: 'wsdata'
+datestamp: 1602783701

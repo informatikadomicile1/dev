@@ -1,0 +1,16 @@
+.user-logged-in .navbar-fixed-top{
+	top: 80px;
+	z-index: 30;
+}
+.icon_field_link_alone{
+	display: inline-block;
+}
+#contact input[type='submit']{
+	background: #ce3232;
+    border-radius: 0;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+    height: 50px;
+    width: 100%;
+}

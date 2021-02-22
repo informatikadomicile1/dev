@@ -1,0 +1,14 @@
+
+# Footer Section
+email: 'youremail@restaurant.com'
+phone: '9876543210'
+callnow_text: 'Call Now!'
+reserve_link: '#footer'
+reserve_text: 'Reserve a table'
+
+facebook: 'https://www.facebook.com'
+twitter: 'https://www.twitter.com'
+googleplus: 'https://plus.google.com'
+instagram: 'https://www.insta.gram'
+
+copyright: 'Copyright © 2019 Your Company'

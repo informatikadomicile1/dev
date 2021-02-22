@@ -1,0 +1,181 @@
+
+.top-message,
+.topwidget,
+.services,
+.features,
+.clients,
+.updates,
+.faq,
+.bottom-widget,
+.footer,
+.copyright{
+	padding: 20px 0;
+}
+
+.main-content{
+	padding: 0 0 50px 0;
+
+	.region-content{
+		max-width: 800px;
+		margin: 0 auto;
+	}
+}
+
+// Front page
+.path-frontpage {
+	.feed-icon{
+		display: none;
+	}
+	.main-content{
+		text-align: center;
+	}
+}
+
+.footer,
+.features,
+.products{
+    background: rgba(255, 255, 255, 0.61);
+}
+
+.features{
+	background-color: #fff;
+
+	.region{
+		background: #fff;
+		overflow: hidden;
+	}
+	video{
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+.footer{
+	tbody tr:hover, tbody tr:focus {
+	    background: none;
+	}
+}
+
+.clients{
+	text-align: center;
+
+	.region{
+		ul {
+			text-align: center;
+			li{
+				display: inline-block;
+				img{
+					max-width: 200px;
+				}
+			}
+		}
+	}
+}
+
+.services{
+	text-align: center;
+
+	.team-list{
+		.block{
+			@include box-shadow(0px 0px 3px 0px #ddd);
+			padding: 20px;
+		}
+	}
+}
+
+// Testimonials
+.testimonials-wrap{
+	background: #fafafa;
+	border-top: solid 1px #e3e3e3;
+	border-bottom: solid 1px #e3e3e3;
+	padding: 20px 0;
+	text-align: center;
+	font-size: 1em;
+	line-height: 160%;
+}
+
+.region-testimonials{
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.testimonials-pic{
+	width: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 10px;
+}
+
+.testimonials-pic img{
+	@include border-radius(50%);
+}
+
+.testimonials-author{
+	padding: 0 5px;
+	font-size: .75em;
+	color: #555;
+}
+
+// Price
+.price-table,
+.bottom-widget{
+	.card-header{
+		border: 0;
+    	padding: 20px;
+	}
+
+	ul li {
+	    list-style: none;
+	    border-bottom: 1px solid #eee;
+	    padding-bottom: 10px;
+	    margin-bottom: 10px;
+	}
+}
+
+// Team
+.team {
+	.team-list{
+		.region{
+			background: #efefef;
+			overflow: hidden;
+			padding: 10px;
+			border: 1px solid #eaeaea;
+		}
+	}
+}
+
+// Bottom widgets
+.bottom-widget{
+	background: rgba(255, 255, 255, 0.61);
+}
+
+.path-frontpage .bottom-widgets{
+	padding: 20px 0;
+}
+
+.region-faq {
+    max-width: 600px;
+    margin: 0 auto
+}
+
+.accordion {
+	.panel-title a {
+		padding: 20px;
+		display: block;
+		background: #eee;
+		color: #000;
+		
+		i{
+			float: right;
+
+			&:before {
+				content: "\f067";
+			}
+		}
+	}
+	.panel-collapse {
+		padding: 20px;
+		background: #f7f7f7
+	}
+}

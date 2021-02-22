@@ -1,0 +1,13 @@
+{
+    "name": "drupal/data_provider",
+    "description": "Encapsulate various data sources and represent as an unified resource.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Travis Tomka",
+            "email": "underoathosx@gmail.com"
+        }
+    ]
+}

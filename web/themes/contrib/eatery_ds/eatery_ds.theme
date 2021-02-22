@@ -1,0 +1,198 @@
+<?php
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function eatery_ds_preprocess_html(&$variables) {
+  global $base_url;
+  $theme = \Drupal::theme()->getActiveTheme();
+   $variables['theme_path']  = $base_url.'/'. $theme->getPath();
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function eatery_ds_preprocess_page(&$variables) {
+  global $base_url;
+  $variables['phone'] = theme_get_setting('phone');
+  $variables['email'] = theme_get_setting('email');
+  $variables['callnow_text'] = theme_get_setting('callnow_text');
+  $variables['reserve_text'] = theme_get_setting('reserve_text');
+  $variables['reserve_link'] = theme_get_setting('reserve_link');
+  $variables['logo_path'] = \Drupal::theme()->getActiveTheme()->getLogo();
+  $variables['twitter'] = theme_get_setting('twitter');
+  $variables['facebook'] = theme_get_setting('facebook');
+  $variables['googleplus'] = theme_get_setting('googleplus');
+  $variables['instagram'] = theme_get_setting('instagram');
+  $variables['copyright'] = theme_get_setting('copyright');
+  $variables['base_path']=$base_url;
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function eatery_ds_preprocess_menu(&$variables, $hook) {
+  if ($hook == 'menu__main') { // We're doing that for main menu.
+    // Get the current path.
+    $current_path = \Drupal::request()->getRequestUri();
+    $items = $variables['items'];
+    foreach ($items as $key => $item) {
+      // If path is current_path, set active to li.
+      if ($item['url']->toString() == $current_path) {
+        // Add active link.
+        $variables['items'][$key]['attributes']['class'] = 'active';
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function eatery_ds_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
+ 
+  $form['eatery_ds']['header'] = array(
+    '#type' => 'details',
+    '#title' => t('Header Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form ['eatery_ds']['header']['callnow_text'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Call Now Text'),
+    '#default_value' => theme_get_setting('callnow_text'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['header']['phone'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Phone'),
+    '#default_value' => theme_get_setting('phone'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+
+  $form ['eatery_ds']['header']['email'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Email Address'),
+    '#default_value' => theme_get_setting('email'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['header']['reserve_text'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Reservation Text'),
+    '#default_value' => theme_get_setting('reserve_text'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['header']['reserve_link'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Reservation Table Link'),
+    '#default_value' => theme_get_setting('reserve_link'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form['eatery_ds']['footer'] = array(
+    '#type' => 'details',
+    '#title' => t('Footer Settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+ $form ['eatery_ds']['footer']['facebook'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Facebook'),
+    '#default_value' => theme_get_setting('facebook'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['footer']['twitter'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Twitter'),
+    '#default_value' => theme_get_setting('twitter'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  ); 
+
+
+  $form ['eatery_ds']['footer']['instagram'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Instagram'),
+    '#default_value' => theme_get_setting('instagram'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['footer']['googleplus'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Google +'),
+    '#default_value' => theme_get_setting('googleplus'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+  $form ['eatery_ds']['footer']['copyright'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Copyright'),
+    '#default_value' => theme_get_setting('copyright'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function eatery_ds_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Get Request Object.
+  $request = \Drupal::request();
+  if ($exception = $request->attributes->get('exception')) {
+    // Get the status code.
+    $status_code = $exception->getStatusCode();
+    if (in_array($status_code, array(401, 403, 404))) {
+      $suggestions[] = 'page__' . $status_code;
+    }
+  }
+  
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+
+/**
+* Implements hook_form_alter().
+*/
+function eatery_ds_form_alter( &$form, &$form_state, $form_id ) {
+  if ( $form_id == 'user_login_form' ) {
+    $form['name']['#description'] = t('');
+    $form['pass']['#description'] = t('');
+    $form['name']['#attributes']['class'][] = 'form-control';
+    $form['pass']['#attributes']['class'][] = 'form-control';
+    $form['pass']['#size'] = 25;
+    $form['name']['#size'] = 25;
+    $form['actions']['submit']['#attributes']['class'][] = 'form-submit';
+    $form['actions']['#attributes']['class'][] = 'col-md-12 col-sm-12';
+
+  }
+  if ( $form_id == 'user_pass' ) {
+    $form['name']['#size'] = 25;
+    $form['name']['#attributes']['class'][] = 'form-control';
+    $form['actions']['submit']['#attributes']['class'][] = 'form-submit';
+    $form['actions']['#attributes']['class'][] = 'col-md-12 col-sm-12';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eatery_ds_theme(&$existing, $type, $theme, $path) {
+  $hooks = array();
+  $hooks['user_login_form'] = array(
+      'render element' => 'form',
+      'template' => 'user-login-form',
+  );
+  return $hooks;
+}
+?>

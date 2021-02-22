@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Define the hook implementations for the data provider JS component module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityStorageInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
+/**
+ * Implements hook_js_component_form_alter().
+ */
+function data_provider_js_component_js_component_form_alter(
+  array &$form,
+  array $configuration
+): void {
+  $form['resource'] = [
+    '#type' => 'select',
+    '#title' => new TranslatableMarkup('Data Provider Resource'),
+    '#description' => new TranslatableMarkup(
+      'Select the data provider resource.'
+    ),
+    '#options' => data_provider_options(),
+    '#empty_option' => new TranslatableMarkup('- None -'),
+    '#default_value' => $configuration['resource'] ?? NULL,
+    '#weight' => 100,
+  ];
+}
+
+/**
+ * Implements hook_js_component_form_submit().
+ */
+function data_provider_js_component_js_component_form_submit(
+  array &$values,
+  FormStateInterface $form_state
+): void {
+  $values['resource'] = $form_state->getValue('resource');
+}
+
+/**
+ * Get the data provider options.
+ *
+ * @return array
+ *   An array of the data provider resource options.
+ */
+function data_provider_options(): array {
+  $options = [];
+
+  /** @var \Drupal\data_provider\Entity\DataProviderResource $resource */
+  foreach (data_provider_resource_storage()->loadMultiple() as $plugin_id => $resource) {
+    $options[$plugin_id] = $resource->label();
+  }
+
+  return $options;
+}
+
+/**
+ * Get the data provider resource storage.
+ *
+ * @return \Drupal\Core\Entity\EntityStorageInterface
+ *   The data provider resource storage.
+ */
+function data_provider_resource_storage(): EntityStorageInterface {
+  return (\Drupal::service('entity_type.manager'))->getStorage('data_provider_resource');
+}

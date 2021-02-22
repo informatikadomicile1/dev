@@ -1,0 +1,12 @@
+services:
+  plugin.manager.data_provider.fetcher:
+    class: Drupal\data_provider\DataProviderFetcherManager
+    parent: default_plugin_manager
+
+  plugin.manager.data_provider.transformer:
+    class: Drupal\data_provider\DataProviderTransformerManager
+    parent: default_plugin_manager
+
+  data_provider.resource.manager:
+    class: Drupal\data_provider\DataProviderResourceManager
+    arguments: ["@cache.default","@entity_type.manager","@plugin.manager.data_provider.fetcher","@plugin.manager.data_provider.transformer"]

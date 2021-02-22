@@ -1,0 +1,10 @@
+name: Web Service Data Extras
+type: module
+description: Collection of extra encoder and decoder plugins
+core: 8.x
+package: WSData
+
+# Information added by Drupal.org packaging script on 2020-10-15
+version: '2.0.0'
+project: 'wsdata'
+datestamp: 1602783701

@@ -1,0 +1,5 @@
+data_provider.resource.add_form:
+  title: Add Resource
+  route_name: entity.data_provider_resource.add_form
+  appears_on:
+    - entity.data_provider_resource.collection

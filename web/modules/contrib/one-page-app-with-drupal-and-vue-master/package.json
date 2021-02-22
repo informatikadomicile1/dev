@@ -1,0 +1,29 @@
+{
+ "name": "cybertron-gulp",
+ "version": "1.0.0",
+ "description": "Gulp dependencies for cybertron theme",
+ "main": "gulpfile.js",
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1"
+ },
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/imran031387/Drupal-8-Theme-Starter.git"
+ },
+ "author": "mimran",
+ "license": "ISC",
+ "devDependencies": {
+  "gulp": "^3.9.1",
+  "gulp-autoprefixer": "^3.1.1",
+  "gulp-imagemin": "^2.4.0",
+  "gulp-livereload": "^3.8.1",
+  "gulp-sass": "^2.3.2",
+  "gulp-sourcemaps": "^1.12.0",
+  "imagemin-pngquant": "^4.2.2",
+  "gulp-uglify": "^3.0.0",
+  "gulp-concat": "^2.6.1"
+ },
+ "dependencies": {
+  "gulp-uglifyjs": "^0.6.2"
+ }
+}

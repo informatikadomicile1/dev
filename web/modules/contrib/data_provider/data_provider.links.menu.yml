@@ -1,0 +1,5 @@
+data_provider.resource.collection:
+  title: Data Provider
+  description: 'Manage reusable data provider resources.'
+  route_name: entity.data_provider_resource.collection
+  parent: system.admin_config_services

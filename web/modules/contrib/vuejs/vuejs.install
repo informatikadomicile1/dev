@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the vuejs module.
+ *
+ * @ingroup vuejs
+ */
+
+/**
+ * Implements hook_update_N().
+ */
+function vuejs_update_8001(&$sandbox) {
+  $module = basename(__FILE__, '.install');
+  \Drupal::service('config.installer')->installDefaultConfig('module', $module);
+  \Drupal::messenger()->addStatus('Module vuejs Update # 8001 () was executed successfully.');
+}

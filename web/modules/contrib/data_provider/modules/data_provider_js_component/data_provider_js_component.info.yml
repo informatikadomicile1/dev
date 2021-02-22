@@ -1,0 +1,14 @@
+type: module
+name: Data Provider JS Component
+description: Integrate data provider with the JS compoment block.
+php: 7.2
+core_version_requirement: ^8.7.7 || ^9
+package: Web services
+dependencies:
+  - js_component
+  - data_provider
+
+# Information added by Drupal.org packaging script on 2021-02-17
+version: '1.0.0-alpha1'
+project: 'data_provider'
+datestamp: 1613580949

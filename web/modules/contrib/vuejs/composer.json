@@ -1,0 +1,21 @@
+{
+    "name": "drupal/vuejs",
+    "description": "Provides Vue.js integration for Drupal 9 and 8",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Chi",
+            "homepage": "https://www.drupal.org/u/chi"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9 || ^10"
+            }
+        }
+    }
+}

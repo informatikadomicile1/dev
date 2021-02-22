@@ -1,0 +1,21 @@
+
+                    <div class="col-md-4 col-sm-4">
+                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                            <img src="{{ file_url(content.field_image['#items'].entity.uri.value)}}"
+                                 class="img-responsive" 
+                                 alt="{{ content.field_image['#items'].alt }}" 
+                                 title="{{ content.field_image['#items'].title }}">
+                                   <div class="team-hover">
+                                        <div class="team-item">
+                                             <h4>{{content.field_description.0}}</h4> 
+                                             <ul class="social-icon">
+                                             	{{content.field_social_links}}
+                                             </ul>
+                                        </div>
+                                   </div>
+                         </div>
+                         <div class="team-info">
+                              <h3>{{content.field_name.0}}</h3>
+                              <p>{{content.field_designation.0}}</p>
+                         </div>
+                    </div>

@@ -1,0 +1,27 @@
+global-styling:
+  css:
+    theme:
+        css/bootstrap.min.css: {}
+        css/font-awesome.min.css: {}
+        css/animate.css: {}
+        css/owl.carousel.css: {}
+        css/owl.theme.default.min.css: {}
+        css/magnific-popup.css: {}
+        css/templatemo-style.css: {}
+        css/custom.css: {}
+  js: 
+    js/popper.min.js: {}
+    js/bootstrap.min.js: {}
+    js/jquery.stellar.min.js: {}
+    js/wow.min.js: {}
+    js/owl.carousel.min.js: {}
+    js/jquery.magnific-popup.min.js: {}
+    js/smoothscroll.js: {}
+    js/custom.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/jquery.once 
+    - core/drupalSettings
+    - core/modernizr
+    - core/drupal

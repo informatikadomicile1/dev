@@ -1,0 +1,7 @@
+services:
+  vuejs.commands:
+    class: \Drupal\vuejs\Commands\VuejsCommands
+    arguments:
+      - '@config.factory'
+    tags:
+      - { name: drush.command }

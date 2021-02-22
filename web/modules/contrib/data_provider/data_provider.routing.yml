@@ -1,0 +1,12 @@
+
+data_provider.api.resource:
+  path: '/data-provider/api/resource/{resource}'
+  defaults:
+    _controller: \Drupal\data_provider\Controller\DataProviderResourceAPIEndpoint::getResource
+  methods: ['GET']
+  options:
+    parameters:
+      resource:
+        type: 'entity:data_provider_resource'
+  requirements:
+    _custom_access: \Drupal\data_provider\Controller\DataProviderResourceAPIEndpoint::checkResourceAccess

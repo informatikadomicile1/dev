@@ -1,0 +1,23 @@
+name: 'Eatery DS'
+description: 'This is Responsive Drupal8 Restaurant Theme.'
+core: 8.x
+type: theme
+base theme: classy
+screenshot: eatery_ds.png
+
+regions:
+  header: Header
+  logo: Logo
+  primary_menu: 'Primary menu'
+  highlighted: Highlighted
+  content: Content
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  
+libraries:
+  - eatery_ds/global-styling
+# Information added by Drupal.org packaging script on 2020-01-13
+version: '8.x-1.0'
+project: 'eatery_ds'
+datestamp: 1578936919

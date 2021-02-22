@@ -1,0 +1,8 @@
+access all data provider resources:
+  title: Access all data provider resources
+
+administer data provider resources:
+  title: Administer data provider resources
+
+permission_callbacks:
+  - \Drupal\data_provider\DataProviderResourcePermissions::permissions

@@ -1,0 +1,67 @@
+data_provider.resource.*:
+  type: config_entity
+  label: Data provider resource
+  mapping:
+    label:
+      type: label
+      label: Data provider resource label
+    name:
+      type: string
+      label: Data provider resource machine-name
+    fetcher:
+      type: mapping
+      label: Data provider resource fetcher
+      mapping:
+        plugin_id:
+          type: string
+          label: Fetcher plugin id
+        settings:
+          type: data_provider.fetcher.[%parent.plugin_id]
+    transformer:
+      type: mapping
+      label: Data provider resource transformer
+      mapping:
+        plugins:
+          type: mapping
+          label: Data provider resource transformer plugins
+          mapping:
+            plugin_id:
+              type: string
+              label: Data provider resource transformer plugin id
+    caching:
+      type: mapping
+      label: Data provider resource caching
+      mapping:
+        tags:
+          type: text
+          label: Data provider resource caching tags
+        enabled:
+          type: boolean
+          label: Data provider resource caching enabled
+        expired:
+          type: integer
+          label: Data provider resource caching expired
+        recursive:
+          type: boolean
+          label: Data provider resource caching recursive
+        exclude:
+          type: mapping
+          label: Data provider resource caching exclude
+          mapping:
+            entity_types:
+              type: sequence
+              label: Data provider resource caching exclude entity types
+              sequence:
+                type: string
+                label: Data provider resource caching exclude entity type
+
+data_provider.fetcher.http_request:
+  type: mapping
+  label: Fetcher HTTP request
+  mapping:
+    type:
+      type: string
+      label: Fetcher HTTP URL type
+    url:
+      type: uri
+      label: Fetcher HTTP request URL
